@@ -424,7 +424,7 @@ function Shell() {
       } catch (error) {
         if (!alive) return;
         setPleistoceneInfo((prev) => ({ ...prev, ok: false, error: String(error) }));
-        console.warn('[GeoGus] Catálogo Pleistoceno indisponível; mantendo Holoceno e tentando novamente.', error);
+        console.warn('[GeoBK] Catálogo Pleistoceno indisponível; mantendo Holoceno e tentando novamente.', error);
       } finally { pleistoceneLoading.current = false; }
     };
     void attempt();
@@ -762,7 +762,7 @@ function Shell() {
     const p = await Notification.requestPermission();
     if (p === 'granted') {
       setSettings((s) => ({ ...s, browserNotifs: true }));
-      void showSystemNotification('GeoGus', { body: t('nt.enabled'), tag: 'geogus-permission-test' });
+      void showSystemNotification('GeoBK', { body: t('nt.enabled'), tag: 'geobk-permission-test' });
     } else {
       setSettings((s) => ({ ...s, browserNotifs: false }));
     }
@@ -775,7 +775,7 @@ function Shell() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="brand"><span className="logo">🌋</span><span className="brand-name">Geo<b>Gus</b></span></div>
+        <div className="brand"><span className="logo">🌋</span><span className="brand-name">Geo<b>BK</b></span></div>
         <SearchBar volcanoes={volcanoes} quakes={quakes} onPick={pick} />
         <select
           className="lang-select"

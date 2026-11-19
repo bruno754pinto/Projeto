@@ -13,4 +13,4 @@ assert.equal(shouldPulseVolcano(3, now + 2 * hour, now), false, 'future evidence
 assert.equal(shouldPulseVolcano(0, now - hour, now), false, 'green does not pulse');
 assert.equal(volcanoPulseDeadline(now - hour), now - hour + 24 * hour + 1);
 assert.equal(volcanoPulseDeadline(null), null);
-console.log('GeoGus volcano pulse: orange/red/active signals use a strict rolling 24h evidence window: OK');
+console.log('GeoBK volcano pulse: orange/red/active signals use a strict rolling 24h evidence window: OK');

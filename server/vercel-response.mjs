@@ -7,7 +7,7 @@ export function sendSourceResult(res, result, source) {
   const body = result?.body ?? result ?? {};
   const updatedAt = result?.updatedAt ?? body?.updatedAt ?? Date.now();
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
-  if (result?.stale || body?.stale) res.setHeader('X-GeoGus-Cache', 'STALE');
+  if (result?.stale || body?.stale) res.setHeader('X-GeoBK-Cache', 'STALE');
   return res.status(200).json({
     ...body,
     stamp: new Date(updatedAt).toISOString(),

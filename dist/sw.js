@@ -1,4 +1,4 @@
-// Service worker do GeoGus: app-shell cache-first, dados/tiles network-first.
+// Service worker do GeoBK: app-shell cache-first, dados/tiles network-first.
 // v15: ondas circulares globais para alertas vulcânicos laranja/vermelhos e estados oficiais ativos.
 const SHELL = 'gg-shell-v15';
 const DATA = 'gg-data-v15';
@@ -13,13 +13,13 @@ self.addEventListener('message', (event) => {
 self.addEventListener('push', (event) => {
   let payload = {};
   try { payload = event.data ? event.data.json() : {}; }
-  catch { payload = { body: event.data?.text?.() || 'Há uma nova atualização no GeoGus.' }; }
-  const title = payload.title || 'GeoGus · Novo alerta';
+  catch { payload = { body: event.data?.text?.() || 'Há uma nova atualização no GeoBK.' }; }
+  const title = payload.title || 'GeoBK · Novo alerta';
   const options = {
     body: payload.body || payload.message || 'Um novo evento foi registrado.',
     icon: '/icons/icon-192.png',
     badge: '/icons/icon-192.png',
-    tag: payload.tag || payload.id || 'geogus-push',
+    tag: payload.tag || payload.id || 'geobk-push',
     renotify: Boolean(payload.renotify),
     data: { url: payload.url || '/' },
   };

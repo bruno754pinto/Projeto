@@ -1,6 +1,6 @@
 {
-  "name": "GeoGus — Monitoramento Sísmico e Vulcânico",
-  "short_name": "GeoGus",
+  "name": "GeoBK — Monitoramento Sísmico e Vulcânico",
+  "short_name": "GeoBK",
   "description": "Monitoramento global de terremotos e vulcões em tempo real (USGS, EMSC, Smithsonian GVP).",
   "start_url": "/",
   "scope": "/",

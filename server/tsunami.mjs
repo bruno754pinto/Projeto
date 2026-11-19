@@ -81,7 +81,7 @@ async function fetchFeed(feed) {
   const timer = setTimeout(() => controller.abort(), TIMEOUT);
   try {
     const response = await fetch(feed.url, {
-      headers: { Accept: 'application/xml, text/xml;q=0.9, */*;q=0.5', 'User-Agent': 'GeoGus/1.0 (public hazard information app)' },
+      headers: { Accept: 'application/xml, text/xml;q=0.9, */*;q=0.5', 'User-Agent': 'GeoBK/1.0 (public hazard information app)' },
       signal: controller.signal,
       cache: 'no-store',
     });

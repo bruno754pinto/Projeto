@@ -133,4 +133,4 @@ try {
   globalThis.fetch = originalFetch;
 }
 
-console.log('GeoGus multi-source seismic ingestion, source attribution, deduplication and archive discovery: OK');
+console.log('GeoBK multi-source seismic ingestion, source attribution, deduplication and archive discovery: OK');

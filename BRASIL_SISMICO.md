@@ -1,4 +1,4 @@
-# GeoGus — central sísmica multiorigem
+# GeoBK — central sísmica multiorigem
 
 ## Objetivo
 
@@ -49,7 +49,7 @@ O portal SIS-UnB pode ser coletado por HTML somente se disponibilizar tabela est
 
 ## Serviços internacionais aposentados / não utilizados
 
-O serviço FDSN Event da EarthScope/IRIS (`service.iris.edu/fdsnws/event/1/`) foi aposentado em 01/06/2026. O próprio EarthScope aponta USGS/NEIC e ISC como serviços substitutos; por isso o GeoGus não chama esse endpoint aposentado.
+O serviço FDSN Event da EarthScope/IRIS (`service.iris.edu/fdsnws/event/1/`) foi aposentado em 01/06/2026. O próprio EarthScope aponta USGS/NEIC e ISC como serviços substitutos; por isso o GeoBK não chama esse endpoint aposentado.
 
 ## Deduplicação e qualidade
 
@@ -60,7 +60,7 @@ O serviço FDSN Event da EarthScope/IRIS (`service.iris.edu/fdsnws/event/1/`) fo
 - O SISBRA preliminar mantém seus colaboradores; isso não equivale a um novo evento observado independentemente por cada instituição.
 - Eventos artificiais/mineração e sismos induzidos devem permanecer identificados como tais e não ser misturados silenciosamente a terremotos naturais.
 
-## Rotas GeoGus
+## Rotas GeoBK
 
 - `GET /api/earthquakes?period=day|week|month&minMag=1`
   - retorna `quakes`, `sources`, `errors`, `coverage`, `brazilCount`, `globalCount`, `stale` e `partial`;
@@ -70,6 +70,6 @@ O serviço FDSN Event da EarthScope/IRIS (`service.iris.edu/fdsnws/event/1/`) fo
 ## Limites operacionais
 
 - As fontes externas podem responder com timeout, 403, 429 ou formatos alterados. Uma falha não deve impedir que as outras fontes respondam.
-- A cadência indicada é a política de cache do GeoGus, não uma promessa de atualização/publicação da instituição.
+- A cadência indicada é a política de cache do GeoBK, não uma promessa de atualização/publicação da instituição.
 - Em Vercel Serverless, o cache em memória é oportunista e pode desaparecer entre instâncias frias; para histórico persistente distribuído seria necessário armazenamento durável.
 - O endpoint FDSN pode retornar 204 quando não há eventos dentro dos filtros; isso não significa erro.

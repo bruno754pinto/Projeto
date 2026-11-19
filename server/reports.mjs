@@ -778,7 +778,7 @@ export async function getGvpBulletins() {
 const SEED_DATA_FILE = join(__dirname, 'data', 'reports.json');
 // Vercel Functions têm sistema de arquivos de execução somente leitura, exceto /tmp.
 // Usa o JSON embarcado como semente e /tmp para alterações durante a vida da instância.
-const DATA_FILE = process.env.VERCEL ? '/tmp/geogus-reports.json' : SEED_DATA_FILE;
+const DATA_FILE = process.env.VERCEL ? '/tmp/geobk-reports.json' : SEED_DATA_FILE;
 function loadStore() {
   try {
     const file = existsSync(DATA_FILE) ? DATA_FILE : SEED_DATA_FILE;

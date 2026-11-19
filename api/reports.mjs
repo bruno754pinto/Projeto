@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'Método não permitido.' });
   }
   try {
-    const force = req.query?.force === '1' || new URL(req.url, 'https://geogus.invalid').searchParams.get('force') === '1';
+    const force = req.query?.force === '1' || new URL(req.url, 'https://geobk.invalid').searchParams.get('force') === '1';
     const data = await getReports(force);
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=180');
     return res.status(200).json(data);

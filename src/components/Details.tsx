@@ -39,7 +39,7 @@ export function VolcanoDetails({ v, reports = [], onClose }: { v: Volcano; repor
       <div className="drawer-body">
         <span className="badge geology-status">Status geológico GVP: {t(`status.${v.status}`)}</span>
         <section className="volcano-risk-banner" style={{ '--risk-color': v.risk?.color ?? '#22c55e' } as CSSProperties}>
-          <strong>{v.risk?.label ?? 'NORMAL'} · ALERTA OPERACIONAL GEOGUS</strong>
+          <strong>{v.risk?.label ?? 'NORMAL'} · ALERTA OPERACIONAL GEOBK</strong>
           {(v.risk?.reasons ?? ['Nenhum sinal acima do padrão foi identificado nas fontes disponíveis.']).map((reason, index) => (
             <p key={index}>{reason}</p>
           ))}

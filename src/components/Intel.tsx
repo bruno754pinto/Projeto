@@ -32,9 +32,9 @@ function riskInfo(hazard?: HistoricalHazard) {
     };
   }
   const vei = hazard.maxVei;
-  if (vei >= 6) return { key: 'extreme', label: 'Extremamente perigoso · histórico', note: `Faixa visual GeoGus baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 4 };
-  if (vei >= 4) return { key: 'high', label: 'Perigoso · histórico', note: `Faixa visual GeoGus baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 3 };
-  if (vei >= 2) return { key: 'moderate', label: 'Moderado · histórico', note: `Faixa visual GeoGus baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 2 };
+  if (vei >= 6) return { key: 'extreme', label: 'Extremamente perigoso · histórico', note: `Faixa visual GeoBK baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 4 };
+  if (vei >= 4) return { key: 'high', label: 'Perigoso · histórico', note: `Faixa visual GeoBK baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 3 };
+  if (vei >= 2) return { key: 'moderate', label: 'Moderado · histórico', note: `Faixa visual GeoBK baseada no maior VEI (${vei}) no histórico Holoceno do GVP. Não é avaliação de risco atual, exposição ou previsão.`, rank: 2 };
   return { key: 'low', label: 'Tranquilo · histórico', note: `Maior VEI documentado: ${vei}. Indica menor explosividade registrada no histórico consultado, não ausência de outros perigos nem garantia de segurança.`, rank: 1 };
 }
 

@@ -16,4 +16,4 @@ assert.equal(interpret('Ash plume drifted 12 km downwind from the volcano.').ash
   'horizontal drift distance must not be read as plume altitude');
 assert.equal(interpret('Plume dispersed over a distance of 9 km east of the volcano.').ashKm, null,
   'horizontal dispersion distance must not be read as plume altitude');
-console.log('GeoGus report interpretation: plume altitude, feet/metres conversion and drift false-positive guards: OK');
+console.log('GeoBK report interpretation: plume altitude, feet/metres conversion and drift false-positive guards: OK');

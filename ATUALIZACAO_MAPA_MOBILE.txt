@@ -1,4 +1,4 @@
-GeoGus — atualização de mapa e experiência mobile
+GeoBK — atualização de mapa e experiência mobile
 
 Arquivos alterados:
 - src/components/MapView.tsx
@@ -6,7 +6,7 @@ Arquivos alterados:
 - src/main.tsx
 - public/sw.js
 - index.html
-- GEOGUS_PROGRESS.md
+- GEOBK_PROGRESS.md
 
 Mudanças:
 1. Marcadores de vulcões em erupção com pulsação vermelha; ativos/recentes com pulsação âmbar mais lenta.
@@ -21,7 +21,7 @@ Aplicação:
 - Extraia os arquivos preservando as pastas sobre a raiz do projeto atual (ou use o ZIP completo).
 - Execute npm ci e npm run build.
 - Se o build passar, commit/push para o GitHub; o Vercel fará o deploy das funções API e do frontend.
-- No dispositivo móvel, abra o endereço HTTPS do GeoGus e, se desejar, use Adicionar à tela inicial.
+- No dispositivo móvel, abra o endereço HTTPS do GeoBK e, se desejar, use Adicionar à tela inicial.
 
 Validação realizada nesta entrega:
 - Transpilação sintática dos 11 arquivos TS/TSX: aprovada.
@@ -31,5 +31,5 @@ Validação realizada nesta entrega:
 - Build completo/typecheck não foi executado porque npm ci excedeu o tempo limite neste ambiente. Execute localmente antes de publicar.
 
 Sobre a mensagem “A listener indicated an asynchronous response by returning true...”:
-- O código do GeoGus não usa chrome.runtime/browser.runtime nem listeners de extensão.
+- O código do GeoBK não usa chrome.runtime/browser.runtime nem listeners de extensão.
 - A mensagem costuma vir de uma extensão Chrome que abriu um canal assíncrono e não respondeu a tempo. Após atualizar o service worker, teste em janela anônima com extensões desativadas. Se desaparecer, a origem era uma extensão; o app não consegue corrigir o canal interno de uma extensão.

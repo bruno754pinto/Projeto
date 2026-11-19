@@ -1,4 +1,4 @@
-// Proxy + servidor estático para o TerraPulse (sem dependências externas).
+// Proxy + servidor estático para o GeoBK (sem dependências externas).
 // O GVP (webservices.volcano.si.edu) não envia cabeçalhos CORS, então o frontend
 // consome o catálogo do Smithsonian exclusivamente via /api/gvp com cache em memória.
 import http from 'node:http';
@@ -87,7 +87,7 @@ const server = http.createServer(async (req, res) => {
   // Healthcheck local: permite diferenciar backend parado de fonte externa indisponível.
   if (url.pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
-    return res.end(JSON.stringify({ ok: true, service: 'GeoGus API', port: PORT, uptimeSeconds: Math.round(process.uptime()), time: new Date().toISOString() }));
+    return res.end(JSON.stringify({ ok: true, service: 'GeoBK API', port: PORT, uptimeSeconds: Math.round(process.uptime()), time: new Date().toISOString() }));
   }
 
   // Observatórios nacionais + central de relatórios (coleta/interpretação em reports.mjs).
@@ -151,4 +151,4 @@ const server = http.createServer(async (req, res) => {
 });
 
 const HOST = process.env.HOST || '0.0.0.0';
-server.listen(PORT, HOST, () => console.log(`TerraPulse server em http://127.0.0.1:${PORT}`));
+server.listen(PORT, HOST, () => console.log(`GeoBK server em http://127.0.0.1:${PORT}`));

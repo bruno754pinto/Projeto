@@ -1,8 +1,8 @@
-# GeoGus — catálogo vulcânico mundial e alertas
+# GeoBK — catálogo vulcânico mundial e alertas
 
 ## Cobertura do mapa
 
-O GeoGus utiliza as camadas oficiais do Smithsonian Global Volcanism Program (GVP) para representar a cobertura Quaternária publicada no catálogo Volcanoes of the World:
+O GeoBK utiliza as camadas oficiais do Smithsonian Global Volcanism Program (GVP) para representar a cobertura Quaternária publicada no catálogo Volcanoes of the World:
 
 - **Holoceno:** 1.214 vulcões na edição GVP v5.4.0, publicada em 07/08/2026. Esses registros correspondem a vulcões com erupções durante o Holoceno (aproximadamente os últimos 12 mil anos).
 - **Pleistoceno:** 1.452 registros na lista Pleistoceno da mesma base. O próprio GVP descreve essa lista como preliminar; pode conter dados incompletos ou incorretos.
@@ -34,7 +34,7 @@ O frontend verifica fontes oficiais a cada 60 segundos:
 - PVMBG/MAGMA — níveis e relatórios da Indonésia.
 - Central de relatórios oficiais já configurada no projeto — relatórios diários/semanais quando disponíveis.
 
-O cache de servidor para HANS/PHIVOLCS/PVMBG e o cache GVP de erupções contínuas são de 45 segundos. Em falhas transitórias, o GeoGus mantém o último dado válido e identifica a condição de cache/erro.
+O cache de servidor para HANS/PHIVOLCS/PVMBG e o cache GVP de erupções contínuas são de 45 segundos. Em falhas transitórias, o GeoBK mantém o último dado válido e identifica a condição de cache/erro.
 
 **Limite de tempo real:** polling de um minuto não garante alerta instantâneo. A aplicação só pode informar depois que o observatório publica ou disponibiliza o evento. Algumas fontes publicam boletins diários ou em intervalos irregulares; indisponibilidade ou bloqueio pelo provedor pode atrasar a atualização. Alertas de nível elevado não são automaticamente convertidos em erupção.
 

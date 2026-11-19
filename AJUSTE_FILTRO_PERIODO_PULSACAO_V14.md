@@ -1,4 +1,4 @@
-# GeoGus v14 — filtro por camada e pulsação vulcânica
+# GeoBK v14 — filtro por camada e pulsação vulcânica
 
 ## Barra de filtros
 - Período aparece quando Terremotos OU Vulcões está ativado.

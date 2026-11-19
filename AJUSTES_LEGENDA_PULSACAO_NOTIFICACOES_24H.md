@@ -1,4 +1,4 @@
-# GeoGus — ajustes de legenda, pulsação, notificações e período padrão
+# GeoBK — ajustes de legenda, pulsação, notificações e período padrão
 
 ## Alterações
 - Legenda do mapa recolhível/expansível, com preferência persistida no navegador. Em dispositivos móveis, inicia recolhida quando ainda não existe preferência salva.

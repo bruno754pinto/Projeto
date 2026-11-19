@@ -133,4 +133,4 @@ r = base({ quakes: [oldQuake] });
 assert.equal(r.level, 'GREEN');
 assert.equal(r.pulse, false);
 
-console.log('GeoGus volcano risk: official alert mappings, RED evidence, dated pulses and negative-signal guards: OK');
+console.log('GeoBK volcano risk: official alert mappings, RED evidence, dated pulses and negative-signal guards: OK');

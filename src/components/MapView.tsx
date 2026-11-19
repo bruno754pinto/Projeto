@@ -160,7 +160,7 @@ function superVolcanoPopup(volcano: Volcano): HTMLElement {
   root.appendChild(note);
   if (volcano.risk) {
     const risk = document.createElement('p'); risk.className = 'historical-geo-note';
-    risk.textContent = `Alerta operacional GeoGus: ${volcano.risk.label}. ${volcano.risk.reasons.join(' ')}`;
+    risk.textContent = `Alerta operacional GeoBK: ${volcano.risk.label}. ${volcano.risk.reasons.join(' ')}`;
     root.appendChild(risk);
   }
   const gvp = document.createElement('a'); gvp.href = `https://volcano.si.edu/volcano.cfm?vn=${volcano.vn}`; gvp.target = '_blank'; gvp.rel = 'noopener noreferrer'; gvp.textContent = 'Perfil do Smithsonian GVP ↗'; root.appendChild(gvp);
@@ -315,7 +315,7 @@ function volcanoPopupHtml(v: Volcano, ongoing: Map<number, { start: string; end:
   el.innerHTML = `
     <h3>${escapeHtml(v.name)}</h3>
     <div class="row">${escapeHtml(v.country)} · ${escapeHtml(v.type)}</div>
-    <div class="kv"><span>Alerta operacional GeoGus</span><b style="color:${riskColor}">${escapeHtml(riskLabel)}</b></div>
+    <div class="kv"><span>Alerta operacional GeoBK</span><b style="color:${riskColor}">${escapeHtml(riskLabel)}</b></div>
     <div class="muted small">Confiança do sinal: ${escapeHtml(risk?.confidence ?? 'LIMITADA')} · Atualizado ${risk ? new Date(risk.updatedAt).toLocaleString() : '—'}</div>
     <ul class="volcano-risk-reasons">${reasons}</ul>
     ${risk?.seismic24h ? `<div class="kv"><span>Sismicidade até ${escapeHtml(risk.seismicRadiusKm ?? 15)} km</span><b>${risk.seismic24h} evento(s) / 24 h · ${risk.seismicPrevious6d} nos 6 dias anteriores</b></div>` : ''}
@@ -477,7 +477,7 @@ export default function MapView({ quakes, volcanoes, settings, alertMag, ongoing
         maxBoundsViscosity: 0.92,
       });
     } catch (error) {
-      console.error('[GeoGus] Não foi possível iniciar o mapa Leaflet:', error);
+      console.error('[GeoBK] Não foi possível iniciar o mapa Leaflet:', error);
       setMapError('Não foi possível iniciar o mapa neste navegador. Atualize o navegador ou tente outro dispositivo.');
       return;
     }
@@ -499,7 +499,7 @@ export default function MapView({ quakes, volcanoes, settings, alertMag, ongoing
     let fallbackTimer: number | undefined;
     const useFallback = () => {
       if (styleReady || fallbackLayer || !map.getContainer().isConnected) return;
-      console.warn('[GeoGus] Estilo vetorial não carregou a tempo; usando base raster alternativa.');
+      console.warn('[GeoBK] Estilo vetorial não carregou a tempo; usando base raster alternativa.');
       try { if (mapLibreLayer) map.removeLayer(mapLibreLayer); } catch { /* camada parcial */ }
       mapLibreLayer = null;
       fallbackLayer = L.tileLayer(ESRI_FALLBACK_URL, {
@@ -532,13 +532,13 @@ export default function MapView({ quakes, volcanoes, settings, alertMag, ongoing
       glMap.once('load', onStyleReady);
       if (glMap.isStyleLoaded()) onStyleReady();
       glMap.on('error', (event: MapLibreErrorEvent) => {
-        if (!styleReady && event.error) console.warn('[GeoGus] Erro ao carregar base vetorial:', event.error.message);
+        if (!styleReady && event.error) console.warn('[GeoBK] Erro ao carregar base vetorial:', event.error.message);
       });
       // O fallback só entra se o estilo inicial não carregar. Marcadores Leaflet
       // permanecem nas panes superiores e continuam funcionando normalmente.
       fallbackTimer = window.setTimeout(useFallback, 16000);
     } catch (error) {
-      console.error('[GeoGus] Falha no MapLibre; usando base raster:', error);
+      console.error('[GeoBK] Falha no MapLibre; usando base raster:', error);
       useFallback();
     }
 

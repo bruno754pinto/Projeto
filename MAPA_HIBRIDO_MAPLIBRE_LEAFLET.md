@@ -1,4 +1,4 @@
-# Mapa híbrido GeoGus — MapLibre + Leaflet
+# Mapa híbrido GeoBK — MapLibre + Leaflet
 
 ## Arquitetura
 
@@ -6,7 +6,7 @@
 - O adaptador oficial `@maplibre/maplibre-gl-leaflet` incorpora o canvas MapLibre como camada do mapa Leaflet.
 - Leaflet continua sendo o mapa interativo e desenha os marcadores, ícones SVG/DivIcon, círculos, popups, clusters e controles.
 - `leaflet.markercluster` permanece responsável pelo agrupamento sísmico e pelos grupos de vulcões que já usam cluster.
-- As classes CSS existentes do GeoGus são mantidas para a pulsação amarela/laranja/vermelha. Marcadores verdes permanecem estáticos.
+- As classes CSS existentes do GeoBK são mantidas para a pulsação amarela/laranja/vermelha. Marcadores verdes permanecem estáticos.
 
 ## Dependências
 
@@ -14,9 +14,9 @@
 
 ## Limitações importantes
 
-O adaptador usa os eventos e gestos do Leaflet para sincronizar a câmera MapLibre. A documentação do adaptador informa que esta combinação não oferece pitch/rotação e pode parecer mais lenta que um mapa MapLibre puro durante pan/zoom; a vantagem é recuperar integralmente a compatibilidade com ícones, marcadores, popups e plugins Leaflet. Para esse requisito do GeoGus, os recursos visuais Leaflet foram priorizados sobre os recursos de rotação/3D do mapa puro.
+O adaptador usa os eventos e gestos do Leaflet para sincronizar a câmera MapLibre. A documentação do adaptador informa que esta combinação não oferece pitch/rotação e pode parecer mais lenta que um mapa MapLibre puro durante pan/zoom; a vantagem é recuperar integralmente a compatibilidade com ícones, marcadores, popups e plugins Leaflet. Para esse requisito do GeoBK, os recursos visuais Leaflet foram priorizados sobre os recursos de rotação/3D do mapa puro.
 
-A base vetorial usa OpenFreeMap sem token. Se o estilo inicial não carregar dentro de 16 segundos ou WebGL não inicializar, o GeoGus usa o raster escuro Esri como fallback; os marcadores Leaflet continuam em funcionamento.
+A base vetorial usa OpenFreeMap sem token. Se o estilo inicial não carregar dentro de 16 segundos ou WebGL não inicializar, o GeoBK usa o raster escuro Esri como fallback; os marcadores Leaflet continuam em funcionamento.
 
 ## Instalação
 

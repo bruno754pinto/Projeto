@@ -1,4 +1,4 @@
-# GeoGus â€” progresso de implementaÃ§Ã£o
+# GeoBK â€” progresso de implementaÃ§Ã£o
 
 Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ£o sem reanalisar todo o projeto.
 
@@ -184,7 +184,7 @@ Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ
 
 ### Faixa de histórico eruptivo
 - Cards usam maior VEI registrado no histórico GVP Holoceno: VEI 6–8 = “Extremamente perigoso”; 4–5 = “Perigoso”; 2–3 = “Moderado”; 0–1 = “Tranquilo”; sem VEI = “Histórico insuficiente”.
-- A nota do indicador esclarece que se trata de uma classificação visual própria do GeoGus sobre explosividade histórica, não de risco atual, previsão ou escala oficial de perigosidade.
+- A nota do indicador esclarece que se trata de uma classificação visual própria do GeoBK sobre explosividade histórica, não de risco atual, previsão ou escala oficial de perigosidade.
 
 ### Validação
 - A validação de TypeScript e build será feita após instalação das dependências. A classificação de erupção foi ajustada nas rotinas de PHIVOLCS, PVMBG e USGS para não tratar nível de alerta como erupção confirmada.
@@ -258,7 +258,7 @@ Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ
 - `npm ci` excedeu o tempo limite neste ambiente; `npm run build`/typecheck completo não pôde ser concluído por dependências ausentes/incompletas.
 
 ### Limitações operacionais
-- Notificações automáticas funcionam enquanto o GeoGus está aberto no navegador; timers em abas em segundo plano podem ser limitados pelo navegador. Para notificar com a aplicação fechada, é necessário configurar Web Push (VAPID, armazenamento de subscriptions e serviço de envio agendado), não incluído nesta entrega.
+- Notificações automáticas funcionam enquanto o GeoBK está aberto no navegador; timers em abas em segundo plano podem ser limitados pelo navegador. Para notificar com a aplicação fechada, é necessário configurar Web Push (VAPID, armazenamento de subscriptions e serviço de envio agendado), não incluído nesta entrega.
 - Terremotos consultados por feed global USGS, com fallback EMSC; limiar padrão de alerta M≥2.5 e ajustável até M≥1.0 nas configurações.
 - Tsunami atualmente cobre os feeds CAP NOAA PTWC/NTWC e suas regiões de serviço; não representa uma central mundial única de todos os centros nacionais.
 - Imagens especiais de Erebus e Mount Michael/Saunders usam fontes curadas; as demais usam imagem GVP quando disponível ou busca estrita no Wikimedia Commons, caso contrário placeholder.
@@ -282,7 +282,7 @@ Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ
 - `index.html` recebeu metas de app mobile e o service worker/cache foi atualizado para v8 (`gg-sw-v8`, `gg-shell-v8`, `gg-data-v8`) para invalidar os assets anteriores.
 
 ### Erro de canal assíncrono do navegador
-- Revisado o código do GeoGus: não há uso de `chrome.runtime`, `browser.runtime` ou listener de extensão que retorne `true` aguardando resposta. A mensagem `A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received` é normalmente emitida por uma extensão do navegador; não é possível corrigi-la no app se a origem for uma extensão. A atualização do service worker/cache foi feita; se a mensagem persistir, confirmar em janela anônima sem extensões.
+- Revisado o código do GeoBK: não há uso de `chrome.runtime`, `browser.runtime` ou listener de extensão que retorne `true` aguardando resposta. A mensagem `A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received` é normalmente emitida por uma extensão do navegador; não é possível corrigi-la no app se a origem for uma extensão. A atualização do service worker/cache foi feita; se a mensagem persistir, confirmar em janela anônima sem extensões.
 
 ### Validação desta rodada
 - Transpilação sintática de 11 arquivos TypeScript/TSX com TypeScript: aprovada, sem diagnósticos sintáticos.
@@ -301,7 +301,7 @@ Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ
 - `src/styles.css`: layout mobile estilo app de mapas: mapa fullscreen, busca e status flutuantes, filtros horizontais na base, listas em bottom sheet, detalhes/notificações adaptados e áreas de toque maiores, com safe-area.
 - `index.html`: metas de aplicação móvel instalável.
 - `public/sw.js` e `src/main.tsx`: service worker/cache versionados para v8 para descarregar assets antigos no próximo deploy.
-- A mensagem do console `A listener indicated an asynchronous response...` não é produzida por código do GeoGus identificado nesta revisão: o projeto não usa `chrome.runtime`/`browser.runtime` nem listeners de extensão. É comumente originada por extensão do navegador; validar em janela anônima sem extensões.
+- A mensagem do console `A listener indicated an asynchronous response...` não é produzida por código do GeoBK identificado nesta revisão: o projeto não usa `chrome.runtime`/`browser.runtime` nem listeners de extensão. É comumente originada por extensão do navegador; validar em janela anônima sem extensões.
 
 ### Validação 17/11/2026
 - Transpilação sintática de 11 arquivos TypeScript/TSX: aprovada, sem diagnósticos sintáticos.
@@ -346,8 +346,8 @@ Este arquivo registra o estado da entrega para permitir retomada em outra sessÃ
 ### Limitações conhecidas
 - `npm run build` não pôde ser concluído neste ambiente porque `node_modules` está incompleto: `npm ci` não concluiu e faltam definições de tipos como React, Leaflet e GeoJSON. Os erros TS2688 são do ambiente de dependências incompleto; não são resultado do teste sintático dos arquivos.
 - As fontes externas reais não puderam ser consultadas a partir do ambiente de trabalho; a validação de integração live deve ser concluída no deploy/ambiente do usuário.
-- USGS disponibiliza feeds em ciclos de aproximadamente 1 minuto, mas o processamento/publicação pode atrasar alguns minutos; para eventos fora dos EUA, a própria documentação informa média de processamento de aproximadamente 20 minutos. O GeoGus consulta a cada minuto, mas não pode notificar antes da fonte publicar.
-- Alertas contínuos dependem do GeoGus permanecer aberto. Notificações com o site fechado exigem Web Push/VAPID e armazenamento de subscriptions, que não fazem parte desta alteração.
+- USGS disponibiliza feeds em ciclos de aproximadamente 1 minuto, mas o processamento/publicação pode atrasar alguns minutos; para eventos fora dos EUA, a própria documentação informa média de processamento de aproximadamente 20 minutos. O GeoBK consulta a cada minuto, mas não pode notificar antes da fonte publicar.
+- Alertas contínuos dependem do GeoBK permanecer aberto. Notificações com o site fechado exigem Web Push/VAPID e armazenamento de subscriptions, que não fazem parte desta alteração.
 
 ## Integração de sismicidade brasileira (17/11/2026)
 - Adicionado consumo do FDSN Event do Centro de Sismologia USP para a região brasileira (QuakeML/XML, limites geográficos e magnitude/período configuráveis).

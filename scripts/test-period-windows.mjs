@@ -16,4 +16,4 @@ for (const [period, duration] of [['hour', 60], ['12h', 720], ['day', 1440]]) {
   assert.equal(withinPeriod(now - windowMs - 1, period, now), false, `${period}: older than exact window excluded`);
   assert.equal(withinPeriod(now + 60_001, period, now), false, `${period}: future event excluded`);
 }
-console.log('GeoGus earthquake windows: exact rolling 1h, 12h, 24h, 7d and 30d filters: OK');
+console.log('GeoBK earthquake windows: exact rolling 1h, 12h, 24h, 7d and 30d filters: OK');

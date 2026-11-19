@@ -1,4 +1,4 @@
-# Aplicação do patch GeoGus v14
+# Aplicação do patch GeoBK v14
 
 1. Faça backup da pasta atual.
 2. Extraia o ZIP do patch mantendo os caminhos (`src/`, `public/`, `scripts/`).

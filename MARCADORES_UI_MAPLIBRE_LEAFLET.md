@@ -1,8 +1,8 @@
-# GeoGus — marcadores Leaflet no mapa-base MapLibre
+# GeoBK — marcadores Leaflet no mapa-base MapLibre
 
 ## Objetivo
 
-O MapLibre continua renderizando exclusivamente a base cartográfica vetorial/WebGL. Toda a simbologia geográfica do GeoGus permanece no Leaflet: `L.marker`, `L.divIcon`, `leaflet.markercluster`, círculos de foco e pop-ups.
+O MapLibre continua renderizando exclusivamente a base cartográfica vetorial/WebGL. Toda a simbologia geográfica do GeoBK permanece no Leaflet: `L.marker`, `L.divIcon`, `leaflet.markercluster`, círculos de foco e pop-ups.
 
 ## Alterações visuais
 

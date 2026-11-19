@@ -1,4 +1,4 @@
-# GeoGus — ajustes de mapa, legenda e alertas
+# GeoBK — ajustes de mapa, legenda e alertas
 
 ## Implementado nesta versão
 - Legenda do mapa recolhível/expansível pelo próprio cabeçalho, com estado inicial compacto em telas de até 900 px e aberta em desktop.
@@ -6,7 +6,7 @@
 - Inclusão de símbolo explicativo para terremotos que atingem ou superam o limite de alerta configurado.
 - Resumo no mapa, atualizado conforme os dados carregados, com contagem de terremotos acima do limite de magnitude e boletins vulcânicos recebidos.
 - Mantida a camada independente de supervulcões/grandes caldeiras, com controle `showSupervolcanoes`, catálogo curado, marcadores destacados e popups com ressalva científica sobre a classificação.
-- Mantidos os recursos existentes do GeoGus, incluindo fontes, histórico, catálogo e carrossel da atividade vulcânica.
+- Mantidos os recursos existentes do GeoBK, incluindo fontes, histórico, catálogo e carrossel da atividade vulcânica.
 
 ## Limites e precisão
 - A classificação “supervulcão” não é uma categoria formal universal do Smithsonian GVP. O catálogo distingue supererupções documentadas, grandes sistemas de caldeira e candidatos, sem sugerir risco iminente.

@@ -1,6 +1,6 @@
 # Critério de atividade vulcânica — versão dinâmica
 
-Este arquivo substitui a regra visual inicial baseada no VEI. O GeoGus agora calcula um **nível operacional de risco** separado do status geológico do Smithsonian GVP.
+Este arquivo substitui a regra visual inicial baseada no VEI. O GeoBK agora calcula um **nível operacional de risco** separado do status geológico do Smithsonian GVP.
 
 - **Verde:** nenhum sinal acima do padrão encontrado nas fontes disponíveis; marcador estático e sem pulsação.
 - **Amarelo:** aviso de agitação, boletim de gases/tremores/deformação/cinzas, atualização de atividade ou aumento sísmico local; pulsação lenta.

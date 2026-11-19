@@ -10,7 +10,7 @@ const healthUrl = `http://127.0.0.1:${port}/api/health`;
 const viteBin = join(root, 'node_modules', 'vite', 'bin', 'vite.js');
 
 if (!existsSync(viteBin)) {
-  console.error('[GeoGus] Dependências não encontradas. Execute "npm ci" antes de "npm run dev".');
+  console.error('[GeoBK] Dependências não encontradas. Execute "npm ci" antes de "npm run dev".');
   process.exit(1);
 }
 
@@ -35,7 +35,7 @@ function shutdown(code = 0) {
 process.on('SIGINT', () => shutdown(130));
 process.on('SIGTERM', () => shutdown(143));
 
-console.log('[GeoGus] Iniciando API local na porta 8787...');
+console.log('[GeoBK] Iniciando API local na porta 8787...');
 api = spawn(process.execPath, [join(root, 'server', 'server.mjs')], {
   cwd: root,
   env: { ...process.env, PORT: port },
@@ -44,12 +44,12 @@ api = spawn(process.execPath, [join(root, 'server', 'server.mjs')], {
 });
 
 api.on('error', (error) => {
-  console.error(`[GeoGus] Não foi possível iniciar a API: ${error.message}`);
+  console.error(`[GeoBK] Não foi possível iniciar a API: ${error.message}`);
   shutdown(1);
 });
 api.on('exit', (code, signal) => {
   if (!stopping) {
-    console.error(`[GeoGus] A API local encerrou inesperadamente (código ${code ?? 'n/a'}, sinal ${signal ?? 'n/a'}).`);
+    console.error(`[GeoBK] A API local encerrou inesperadamente (código ${code ?? 'n/a'}, sinal ${signal ?? 'n/a'}).`);
     shutdown(code && code !== 0 ? code : 1);
   }
 });
@@ -72,10 +72,10 @@ while (!stopping && Date.now() < deadline && api.exitCode === null) {
 
 if (stopping) process.exit(1);
 if (!apiReady) {
-  console.error('[GeoGus] A API não respondeu ao healthcheck em 15 segundos. Verifique se a porta 8787 já está em uso.');
+  console.error('[GeoBK] A API não respondeu ao healthcheck em 15 segundos. Verifique se a porta 8787 já está em uso.');
   shutdown(1);
 } else {
-  console.log('[GeoGus] API pronta. Iniciando Vite...');
+  console.log('[GeoBK] API pronta. Iniciando Vite...');
   vite = spawn(process.execPath, [viteBin], {
     cwd: root,
     env: process.env,
@@ -83,7 +83,7 @@ if (!apiReady) {
     windowsHide: false,
   });
   vite.on('error', (error) => {
-    console.error(`[GeoGus] Não foi possível iniciar o Vite: ${error.message}`);
+    console.error(`[GeoBK] Não foi possível iniciar o Vite: ${error.message}`);
     shutdown(1);
   });
   vite.on('exit', (code) => shutdown(code ?? 0));

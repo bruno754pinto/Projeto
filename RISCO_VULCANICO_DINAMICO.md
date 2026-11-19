@@ -1,10 +1,10 @@
-# GeoGus — classificação operacional dinâmica de risco vulcânico
+# GeoBK — classificação operacional dinâmica de risco vulcânico
 
 ## Objetivo e semântica visual
 
-A camada de risco do GeoGus combina códigos oficiais dos observatórios, boletins oficiais recentes e uma análise auxiliar da sismicidade do entorno. Ela não substitui o nível emitido pelo observatório nem constitui previsão de erupção.
+A camada de risco do GeoBK combina códigos oficiais dos observatórios, boletins oficiais recentes e uma análise auxiliar da sismicidade do entorno. Ela não substitui o nível emitido pelo observatório nem constitui previsão de erupção.
 
-| Cor | Significado operacional GeoGus | Marcador |
+| Cor | Significado operacional GeoBK | Marcador |
 |---|---|---|
 | Verde | Nenhum sinal acima do padrão foi identificado nas fontes disponíveis. | Estático, sem pulsação |
 | Amarelo | Aviso: agitação acima do normal, como sismicidade próxima em aumento, gases, vapor, deformação, cinzas ou inquietação reportada. | Pulsa lentamente |
@@ -15,8 +15,8 @@ Marcadores verdes não pulsam. Supervulcões seguem a mesma classificação oper
 
 ## Mapeamento de códigos oficiais
 
-- **USGS (perigo ao solo):** NORMAL → verde; ADVISORY → amarelo; WATCH → laranja; WARNING → laranja no GeoGus até que exista evidência separada de cinzas significativas. O nível de perigo ao solo WARNING, sozinho, não prova que há grande emissão de cinzas na atmosfera.
-- **USGS (aviação/cinzas):** GREEN → verde; YELLOW → amarelo; ORANGE → laranja; RED → vermelho. O código de aviação e o nível de perigo ao solo são campos distintos; o GeoGus os interpreta em conjunto. Um código de aviação RED eleva para vermelho; por exemplo WATCH / RED e WARNING / RED indicam emissão significativa de cinzas. WARNING / ORANGE continua laranja.
+- **USGS (perigo ao solo):** NORMAL → verde; ADVISORY → amarelo; WATCH → laranja; WARNING → laranja no GeoBK até que exista evidência separada de cinzas significativas. O nível de perigo ao solo WARNING, sozinho, não prova que há grande emissão de cinzas na atmosfera.
+- **USGS (aviação/cinzas):** GREEN → verde; YELLOW → amarelo; ORANGE → laranja; RED → vermelho. O código de aviação e o nível de perigo ao solo são campos distintos; o GeoBK os interpreta em conjunto. Um código de aviação RED eleva para vermelho; por exemplo WATCH / RED e WARNING / RED indicam emissão significativa de cinzas. WARNING / ORANGE continua laranja.
 - **PHIVOLCS:** nível 0 → verde; 1–2 → amarelo; 3–4 → laranja; 5 → vermelho. O nível 4 descreve erupção iminente ou processo magmático/efusivo que pode evoluir; o nível 5 descreve erupção perigosa em curso com colunas carregadas de cinzas, colapso de domo, PDCs ou queda de cinzas generalizada.
 - **PVMBG/MAGMA:** I (Normal) → verde; II (Waspada) → amarelo; III (Siaga) → laranja; IV (Awas) → vermelho.
 
@@ -24,7 +24,7 @@ Os detalhes de boletins oficiais também são examinados. Termos positivos assoc
 
 ## Sismicidade auxiliar
 
-- A janela de cálculo é de 7 dias, com magnitude mínima de 1.0, usando os eventos de catálogos sísmicos que o GeoGus consegue consultar.
+- A janela de cálculo é de 7 dias, com magnitude mínima de 1.0, usando os eventos de catálogos sísmicos que o GeoBK consegue consultar.
 - Eventos são relacionados ao centro de coordenadas do vulcão no catálogo GVP, em até 15 km; para enxames locais, utiliza-se também o raio de 10 km.
 - A taxa das últimas 24 horas é comparada com os 6 dias anteriores.
 - **Amarelo:** aumento significativo da frequência (pelo menos 3 eventos no dia e 2,5 vezes a média diária anterior), ou evento M≥3.5 a até 10 km, ou aumento de pelo menos 2 eventos M≥2 a até 10 km em relação à linha de base.
@@ -48,7 +48,7 @@ A flag de erupção contínua do GVP sustenta pelo menos laranja, mas o VEI hist
 2. O raio é medido a partir das coordenadas do catálogo GVP; não equivale a uma rede local de estações sísmicas nem prova que o evento tenha origem magmática.
 3. Nem todos os vulcões possuem boletins oficiais atualizados ou dados de gases/deformação disponíveis publicamente.
 4. Verde significa **“nenhum sinal encontrado nas fontes consultadas”**, não “vulcão garantidamente seguro”.
-5. Níveis e códigos nacionais têm definições próprias. O mapeamento para as quatro cores do GeoGus é uma camada de triagem visual, não uma conversão oficial universal.
+5. Níveis e códigos nacionais têm definições próprias. O mapeamento para as quatro cores do GeoBK é uma camada de triagem visual, não uma conversão oficial universal.
 
 ## Referências
 

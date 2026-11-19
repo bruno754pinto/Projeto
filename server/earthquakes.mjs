@@ -1,4 +1,4 @@
-// Central sísmica multi-origem GeoGus.
+// Central sísmica multi-origem GeoBK.
 // Catálogos de eventos: USGS, USP/FDSN, LabSis-UFRN, SISBRA preliminar,
 // EMSC, GFZ/GEOFON e ISC. Fontes são consultadas de forma independente,
 // com cache por instituição, timeouts e deduplicação espaço-temporal.
@@ -9,7 +9,7 @@ const AGGREGATE_TTL = 30_000;
 const STALE_TTL = 30 * 60_000;
 const DEFAULT_TIMEOUT = 5_000;
 const BRAZIL_BOUNDS = { minLat: -35.5, maxLat: 7.5, minLon: -75.5, maxLon: -32.0 };
-const state = globalThis.__geogusEarthquakes ??= {
+const state = globalThis.__geobkEarthquakes ??= {
   cache: new Map(), inflight: new Map(), sourceCache: new Map(), sourceInflight: new Map(), sourceMeta: new Map(),
 };
 state.sourceMeta ??= new Map();
@@ -54,7 +54,7 @@ async function fetchResponse(url, timeoutMs = DEFAULT_TIMEOUT, accept = 'applica
       signal: controller.signal,
       headers: {
         Accept: accept,
-        'User-Agent': 'GeoGus/1.0 (public seismological data aggregation)',
+        'User-Agent': 'GeoBK/1.0 (public seismological data aggregation)',
       },
     });
     if (response.status === 204) return { status: 204, text: '' };

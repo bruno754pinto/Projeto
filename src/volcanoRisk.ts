@@ -60,7 +60,7 @@ function levelFromAlert(alert: AlertInfo): { level: VolcanoRiskLevel; reason: st
     // They are both retained because a volcano can legitimately have different
     // ground and aviation statuses at the same time.
     // Ground WARNING is high concern, but does not alone prove significant
-    // ash in the atmosphere. Under the GeoGus visual contract it maps to
+    // ash in the atmosphere. Under the GeoBK visual contract it maps to
     // ORANGE unless the separate aviation code is RED.
     const ground: Record<string, number> = { NORMAL: 0, ADVISORY: 1, WATCH: 2, WARNING: 2 };
     const groundLabel = value.match(/(NORMAL|ADVISORY|WATCH|WARNING)$/)?.[1] ?? value;
@@ -231,7 +231,7 @@ export interface VolcanoRiskInput {
 }
 
 /**
- * Classificação operacional GeoGus. Não substitui o nível oficial emitido pelo
+ * Classificação operacional GeoBK. Não substitui o nível oficial emitido pelo
  * observatório; combina alertas oficiais, boletins confirmados e sismicidade
  * regional disponível para priorizar visualmente os vulcões no mapa.
  */
@@ -301,8 +301,8 @@ export function assessVolcanoRisk(volcano: Volcano, input: VolcanoRiskInput): Vo
   }
   if (!input.ongoing && volcano.status === 'ERUPCAO' && rank < 2) {
     rank = 2;
-    reasons.push('Erupção em andamento confirmada no conjunto de dados GeoGus; sem evidência suficiente para nível vermelho.');
-    sources.add('GeoGus / fontes vulcânicas');
+    reasons.push('Erupção em andamento confirmada no conjunto de dados GeoBK; sem evidência suficiente para nível vermelho.');
+    sources.add('GeoBK / fontes vulcânicas');
   }
 
   // activity[] is generated from 48 h report tags. It is a safety net for a
@@ -326,7 +326,7 @@ export function assessVolcanoRisk(volcano: Volcano, input: VolcanoRiskInput): Vo
   if (rank === 0 && (volcano.activity || []).length) {
     rank = 1;
     reasons.push(`Atualização recente de atividade: ${(volcano.activity || []).slice(0, 4).join(', ')}.`);
-    sources.add('Central de Inteligência GeoGus');
+    sources.add('Central de Inteligência GeoBK');
   }
   if ((volcano.activity || []).length && latestTaggedOfficialActivityAt != null) {
     activityTimes.push(latestTaggedOfficialActivityAt);

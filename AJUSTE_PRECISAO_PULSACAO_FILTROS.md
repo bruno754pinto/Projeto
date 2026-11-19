@@ -1,4 +1,4 @@
-# Ajuste de precisão, filtros e animação do GeoGus
+# Ajuste de precisão, filtros e animação do GeoBK
 
 ## Marcadores e pulsação
 
@@ -34,7 +34,7 @@ USGS WARNING + ORANGE permanece laranja, pois o código de alerta do solo é dif
 
 ## Limitações dos dados
 
-A precisão do sistema é limitada pela cobertura, latência, precisão temporal e formato das fontes públicas. Catálogos globais de terremotos não substituem redes sísmicas locais de vulcões: tremor harmônico, eventos de baixa magnitude e microssismicidade podem não constar nesses catálogos. Alguns boletins oficiais fornecem apenas a data do boletim, sem horário; nesses casos a pulsação respeita a precisão temporal publicada, sem inventar uma hora. A cor do GeoGus é uma classificação operacional combinada e não substitui o nível oficial nem o laudo do observatório.
+A precisão do sistema é limitada pela cobertura, latência, precisão temporal e formato das fontes públicas. Catálogos globais de terremotos não substituem redes sísmicas locais de vulcões: tremor harmônico, eventos de baixa magnitude e microssismicidade podem não constar nesses catálogos. Alguns boletins oficiais fornecem apenas a data do boletim, sem horário; nesses casos a pulsação respeita a precisão temporal publicada, sem inventar uma hora. A cor do GeoBK é uma classificação operacional combinada e não substitui o nível oficial nem o laudo do observatório.
 
 ## Testes
 

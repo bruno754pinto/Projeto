@@ -1,7 +1,7 @@
 const GVP_WFS = 'https://webservices.volcano.si.edu/geoserver/GVP-VOTW/wfs';
-const USER_AGENT = 'GeoGus/1.0 (volcano monitoring; public data client)';
-const cache = globalThis.__geogusGvpCache ??= new Map();
-const inflight = globalThis.__geogusGvpInflight ??= new Map();
+const USER_AGENT = 'GeoBK/1.0 (volcano monitoring; public data client)';
+const cache = globalThis.__geobkGvpCache ??= new Map();
+const inflight = globalThis.__geobkGvpInflight ??= new Map();
 const TTL_ERUPTION = 45_000;
 const TTL_CATALOG = 12 * 60 * 60_000;
 const MAX_QUERY_LENGTH = 7000;
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   const rawQuery = typeof req.query?.q === 'string'
     ? req.query.q
-    : new URL(req.url, 'https://geogus.invalid').searchParams.get('q') || '';
+    : new URL(req.url, 'https://geobk.invalid').searchParams.get('q') || '';
 
   if (!rawQuery) return responseError(res, 400, 'Parâmetro q obrigatório.');
   if (rawQuery.length > MAX_QUERY_LENGTH) return responseError(res, 413, 'Consulta GVP excede o tamanho permitido.');
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
   const ttl = /ContinuingEruption/i.test(key) ? TTL_ERUPTION : TTL_CATALOG;
   if (hit && Date.now() - hit.savedAt < ttl) {
     res.setHeader('Cache-Control', cacheControlFor(key));
-    res.setHeader('X-GeoGus-Cache', 'HIT');
+    res.setHeader('X-GeoBK-Cache', 'HIT');
     return res.status(200).send(hit.body);
   }
 
@@ -84,14 +84,14 @@ export default async function handler(req, res) {
     const result = await pending;
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.setHeader('Cache-Control', cacheControlFor(key));
-    res.setHeader('X-GeoGus-Cache', hit ? 'REVALIDATED' : 'MISS');
+    res.setHeader('X-GeoBK-Cache', hit ? 'REVALIDATED' : 'MISS');
     return res.status(200).send(result.body);
   } catch (error) {
     if (hit?.body) {
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       res.setHeader('Cache-Control', cacheControlFor(key));
-      res.setHeader('X-GeoGus-Cache', 'STALE');
-      res.setHeader('X-GeoGus-Upstream-Error', String(error?.message || error).slice(0, 160));
+      res.setHeader('X-GeoBK-Cache', 'STALE');
+      res.setHeader('X-GeoBK-Upstream-Error', String(error?.message || error).slice(0, 160));
       return res.status(200).send(hit.body);
     }
     const status = Number(error?.status) || 502;
